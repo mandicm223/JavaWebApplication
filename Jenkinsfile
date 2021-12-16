@@ -30,24 +30,25 @@ pipeline{
         }
 
         // Stage3 : sending artifacts to Nexus
-        stage ('Nexus'){
+        stage ('Publish to Nexus'){
             steps {
                 script(
                     
-                    def NexusRepo = Version.endsWith('SNAPSHOT') ? 'MarkoMandic-SNAPSHOT' : 'MarkoMandic-RELEASE'
+                    def NexusRepo = Version.endsWith("SNAPSHOT") ? "MarkoMandic-SNAPSHOT" : "MarkoMandic-RELEASE"
 
 
                     nexusArtifactUploader artifacts: 
-                    [[artifactId: "$(ArtifactId)", 
+                    [[artifactId: "${ArtifactId}", 
                     classifier: '', 
-                    file: 'target/MarkoMandicLab-0.0.3-SNAPSHOT.war', type: 'war']], 
+                    file: 'target/MarkoMandicLab-0.0.3-SNAPSHOT.war', 
+                    type: 'war']], 
                     credentialsId: '6ee80c61-0baf-48b9-8975-91d6bba88303', 
-                    groupId: "$(GroupId)", 
+                    groupId: "${GroupId}", 
                     nexusUrl: '172.20.10.112:8081', 
                     nexusVersion: 'nexus2', 
                     protocol: 'http', 
-                    repository: "$(NexusRepo)", 
-                    version: "$(Version)"
+                    repository: "${NexusRepo}", 
+                    version: "${Version}"
                 )
             }
         }
