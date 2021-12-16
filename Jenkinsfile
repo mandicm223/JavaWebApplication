@@ -4,6 +4,12 @@ pipeline{
     tools {
         maven 'maven'
     }
+    environment {
+        ArtifactId = readMavenPom().getArtifactId()
+        Version = readMavenPom().getVersion()
+        Name = readMavenPom().getName()
+        GroupId = readMavenPom().getGroupId()
+    }
 
     stages {
         // Specify various stage with in stages
@@ -20,6 +26,29 @@ pipeline{
             steps {
                 echo ' testing......'
 
+            }
+        }
+
+        // Stage3 : sending artifacts to Nexus
+        stage ('Nexus'){
+            steps {
+                script(
+                    
+                    def NexusRepo = Version.endsWith('SNAPSHOT') ? 'MarkoMandic-SNAPSHOT' : 'MarkoMandic-RELEASE'
+
+
+                    nexusArtifactUploader artifacts: 
+                    [[artifactId: "$(ArtifactId)", 
+                    classifier: '', 
+                    file: 'target/MarkoMandicLab-0.0.3-SNAPSHOT.war', type: 'war']], 
+                    credentialsId: '6ee80c61-0baf-48b9-8975-91d6bba88303', 
+                    groupId: "$(GroupId)", 
+                    nexusUrl: '172.20.10.112:8081', 
+                    nexusVersion: 'nexus2', 
+                    protocol: 'http', 
+                    repository: "$(NexusRepo)", 
+                    version: "$(Version)"
+                )
             }
         }
 
