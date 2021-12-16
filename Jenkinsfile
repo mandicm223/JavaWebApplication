@@ -6,28 +6,32 @@ pipeline{
     }
 
     stages {
-        // Specify various stage within stages
+        // Specify various stage with in stages
 
-        //stage 1. Build
+        // stage 1. Build
         stage ('Build'){
             steps {
                 sh 'mvn clean install package'
             }
+        }
 
-        //stage 2. Testing
-        stage ('Test') {
+        // Stage2 : Testing
+        stage ('Test'){
             steps {
-                echo "Testing....."
+                echo ' testing......'
+
             }
         }
 
-        //stage 3. Deploying
-        stage ('Deploying') {
+        // Stage3 : Deploying
+        stage ('Deploying'){
             steps {
-                echo "Deploying..."
+                echo 'Deploying'
             }
         }
-        }
 
+        
+        
     }
+
 }
