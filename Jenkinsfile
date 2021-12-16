@@ -40,12 +40,12 @@ pipeline{
                 nexusArtifactUploader artifacts: 
                 [[artifactId: "${ArtifactId}", 
                 classifier: '', 
-                file: 'target/MarkoMandicLab-0.0.3-SNAPSHOT.war', 
+                file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
                 credentialsId: '6ee80c61-0baf-48b9-8975-91d6bba88303', 
                 groupId: "${GroupId}", 
                 nexusUrl: '172.20.10.112:8081', 
-                nexusVersion: 'nexus2', 
+                nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: "${NexusRepo}", 
                 version: "${Version}"
