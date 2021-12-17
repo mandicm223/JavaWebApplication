@@ -42,7 +42,7 @@ pipeline{
                 classifier: '', 
                 file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
-                credentialsId: '6ee80c61-0baf-48b9-8975-91d6bba88303', 
+                credentialsId: 'b038442a-f6e2-42e8-8347-c6b58ed7eb7d', 
                 groupId: "${GroupId}", 
                 nexusUrl: '172.20.10.4:8081', 
                 nexusVersion: 'nexus3', 
