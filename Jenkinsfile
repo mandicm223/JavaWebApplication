@@ -2,7 +2,7 @@ pipeline{
     //Directives
     agent any
     tools {
-        maven 'Maven 3.3.9'
+        maven 'maven'
     }
     environment {
         ArtifactId = readMavenPom().getArtifactId()
