@@ -74,7 +74,7 @@ pipeline{
             }
         }
         
-        /*
+        
 
         // Stage5 : Deploying to Docker 
         stage ('Deploying to docker'){
@@ -86,7 +86,7 @@ pipeline{
                     transfers: [
                         sshTransfer(
                             cleanRemote: false,
-                            execCommand: 'ansible-playbook /opt/playbooks/download_and_deploy_docker.yaml -i /opt/playbooks/hosts',
+                            execCommand: 'ansible-playbook /opt/playbooks/deploy_to_docker.yaml -i /opt/playbooks/hosts',
                             execTimeout: 120000
                         )
                     ],
@@ -95,7 +95,7 @@ pipeline{
                     verbose: false)
                     ])
             }
-            */
+            
         
 
         
