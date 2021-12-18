@@ -53,8 +53,8 @@ pipeline{
             }
         }
 
-        // Stage4 : Deploying
-        stage ('Deploying'){
+        // Stage4 : Deploying to apache
+        stage ('Deploying to apache'){
             steps {
                 echo 'Deploying...'
                 sshPublisher(publishers:
@@ -64,6 +64,27 @@ pipeline{
                         sshTransfer(
                             cleanRemote: false,
                             execCommand: 'ansible-playbook /opt/playbooks/download_and_deploy_as_tomcat_user.yaml -i /opt/playbooks/hosts',
+                            execTimeout: 120000
+                        )
+                    ],
+                    usePromotionTimestamp: false,
+                    useWorkspaceInPromotion: false,
+                    verbose: false)
+                    ])
+            }
+        }
+
+        // Stage5 : Deploying to Docker 
+        stage ('Deploying to docker'){
+            steps {
+                echo 'Deploying...'
+                sshPublisher(publishers:
+                [sshPublisherDesc(
+                    configName: 'Ansible_Controller',
+                    transfers: [
+                        sshTransfer(
+                            cleanRemote: false,
+                            execCommand: 'ansible-playbook /opt/playbooks/download_and_deploy_docker.yaml -i /opt/playbooks/hosts',
                             execTimeout: 120000
                         )
                     ],
