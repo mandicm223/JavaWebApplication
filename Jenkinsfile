@@ -42,9 +42,9 @@ pipeline{
                 classifier: '', 
                 file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
-                credentialsId: 'f4454ab9-b5cf-4a09-a5de-06f179844fc0', 
+                credentialsId: 'd5af4919-b456-47dd-8a66-a97d932c56a5', 
                 groupId: "${GroupId}", 
-                nexusUrl: '172.20.10.222:8081', 
+                nexusUrl: '172.20.10.21:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: "${NexusRepo}", 
@@ -52,7 +52,7 @@ pipeline{
                 }
             }
         }
-
+    /*
         // Stage4 : Deploying to apache
         stage ('Deploying to apache'){
             steps {
@@ -93,7 +93,7 @@ pipeline{
                     verbose: false)
                     ])
             }
-        }
+        }*/
 
         
         
