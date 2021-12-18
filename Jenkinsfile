@@ -52,7 +52,7 @@ pipeline{
                 }
             }
         }
-    /*
+        
         // Stage4 : Deploying to apache
         stage ('Deploying to apache'){
             steps {
@@ -63,7 +63,7 @@ pipeline{
                     transfers: [
                         sshTransfer(
                             cleanRemote: false,
-                            execCommand: 'ansible-playbook /opt/playbooks/download_and_deploy_as_tomcat_user.yaml -i /opt/playbooks/hosts',
+                            execCommand: 'ansible-playbook /opt/playbooks/download_and_deploy_to_tomcat.yaml -i /opt/playbooks/hosts',
                             execTimeout: 120000
                         )
                     ],
@@ -73,6 +73,8 @@ pipeline{
                     ])
             }
         }
+        
+        /*
 
         // Stage5 : Deploying to Docker 
         stage ('Deploying to docker'){
@@ -93,7 +95,8 @@ pipeline{
                     verbose: false)
                     ])
             }
-        }*/
+            */
+        
 
         
         
