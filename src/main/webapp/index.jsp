@@ -42,7 +42,7 @@
                 <div class="form-group">
                     <input type="password" placeholder="Password" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-success">Log In</button>
+                <button type="submit" class="btn btn-success">Log</button>
             </form>
         </div><!--/.navbar-collapse -->
     </div>
@@ -52,7 +52,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1>Hello</h1>
-        <p>This is MarkoMandic AWS Lab</p>
+        <p>This is Vinays DevOps AWS Lab</p>
         <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
         <p><a class="btn btn-primary btn-lg" role="button">Success!! more &raquo;</a></p>
     </div>
@@ -62,7 +62,7 @@
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-4">
-            <h2>BLAVBLALBLALBALABLLBALABLABLALBLABLABL</h2>
+            <h2>Git,Maven and GitHub</h2>
             <p>I have used Git for version controlling. Maven as a build tool. I have used GitHub as my source code repository </p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
