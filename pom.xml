@@ -4,7 +4,7 @@
   <groupId>com.mandicmarko</groupId>
   <artifactId>MarkoMandicLab</artifactId>
   <packaging>war</packaging>
-  <version>0.0.10</version>
+  <version>0.0.11</version>
   <name>MarkoDevOpsLab</name>
   <url>http://maven.apache.org</url>
   <dependencies>

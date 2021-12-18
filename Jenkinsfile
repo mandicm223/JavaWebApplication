@@ -42,9 +42,9 @@ pipeline{
                 classifier: '', 
                 file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
-                credentialsId: 'b038442a-f6e2-42e8-8347-c6b58ed7eb7d', 
+                credentialsId: 'f4454ab9-b5cf-4a09-a5de-06f179844fc0', 
                 groupId: "${GroupId}", 
-                nexusUrl: '172.20.10.4:8081', 
+                nexusUrl: '172.20.10.222:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: "${NexusRepo}", 
@@ -53,10 +53,24 @@ pipeline{
             }
         }
 
-        // Stage3 : Deploying
+        // Stage4 : Deploying
         stage ('Deploying'){
             steps {
-                echo 'Deploying'
+                echo 'Deploying...'
+                sshPublisher(publishers:
+                [sshPublisherDesc(
+                    configName: 'Ansible_Controller',
+                    transfers: [
+                        sshTransfer(
+                            cleanRemote: false,
+                            execCommand: 'ansible-playbook /opt/playbooks/downloadanddeploy.yaml -i /opt/playbooks/hosts',
+                            execTimeout: 120000
+                        )
+                    ],
+                    usePromotionTimestamp: false,
+                    useWorkspaceInPromotion: false,
+                    verbose: false)
+                    ])
             }
         }
 
