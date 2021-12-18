@@ -62,7 +62,7 @@
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-4">
-            <h2>Git,Maven and GitHub</h2>
+            <h2>BLAVBLALBLALBALABLLBALABLABLALBLABLABL</h2>
             <p>I have used Git for version controlling. Maven as a build tool. I have used GitHub as my source code repository </p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
