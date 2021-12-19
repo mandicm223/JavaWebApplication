@@ -4,7 +4,7 @@ Full DevOps lifecycle with Java web application. Starts with provisioning our vi
 
 Jenkins is the main CI tool that takes control of building and publishing the latest artifacts to the nexus repository manager as well as triggering ansible playbooks.
 # Pipeline preview
-![image1](https://github.com/JaSamLudiMoskri/Docker-MultiContainerApp/blob/main/Screenshot%202021-11-21%20190614.png)
+![image1](https://raw.githubusercontent.com/mandicm223/JavaWebApplication/main/Screenshot%202021-12-19%20183350.png)
 
 
 
