@@ -21,10 +21,13 @@ pipeline{
             }
         }
 
-        // Stage2 : Testing
-        stage ('Test'){
+        // Stage2 : Publish the code to to Sonarqube
+        stage ('SonarQube Analysos'){
             steps {
-                echo ' testing......'
+                echo 'Source code published to Sonarqube for code analysis'
+                withSonarQubeEnv('sonarqube'){ 
+                    sh 'mvn sonar:sonar'
+                }
 
             }
         }
